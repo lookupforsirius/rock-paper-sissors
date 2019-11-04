@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Page Title</title>
+</head>
+<body>
+  <script>
+    // Your JavaScript goes here!
+    let computadoraDecisiones = ["rock","paper","scissors"];
+function computerPlay(){
+let randomNumber=Math.floor(Math.random()*3);
+let CPUScore=0;
+let PlayerScore=0;
+return computadoraDecisiones[randomNumber];
+}
+function playRound(playerSelection, computerSelection) {
+  computerSelection=computerPlay();
+	playerSelection=playerSelection.toLowerCase();
+  if(playerSelection=="rock"){
+    if (computerSelection=="rock"){
+      return "I choose rock!draw, you are lucky";
+    }
+    if (computerSelection=="paper"){
+      CPUScore=CPUScore+1;
+      return "I choose paper!I win!!! better luck next time";
+      
+    }
+    else{
+      PlayerScore=PlayerScore+1;
+      return "I choose scissors!You win this time";
+
+    }
+  }
+  if(playerSelection=="paper"){
+    if (computerSelection=="rock"){
+      PlayerScore=PlayerScore+1;
+      return "I choose rock!You win this time";
+    }
+    if (computerSelection=="paper"){
+      return "I choose paper!draw, you are lucky";
+    }
+    else{
+      CPUScore=CPUScore+1;
+      return "I choose scissors!I win!!! better luck next time";
+    }
+  }
+  if(playerSelection=="scissors"){
+    if (computerSelection=="rock"){
+      CPUScore=CPUScore+1;
+      return "I choose rock!I win!!! better luck next time";
+    }
+    if (computerSelection=="paper"){
+      PlayerScore=PlayerScore+1;
+      return "I choose paper!You win this time";
+    }
+    else{
+      return "I choose scissors!draw, you are lucky";
+    }
+  }  
+}
+function game(){
+let playerSelection =prompt("Rock, paper or scissors?");
+ CPUScore=0;
+ PlayerScore=0;
+alert(playRound(playerSelection));
+while(PlayerScore < 3 && CPUScore < 3  ){
+  playerSelection =prompt("Lets play again until someane win 3 times " +"The score is "+PlayerScore+" : "+CPUScore+" so Rock, paper or scissors?");
+ alert( playRound(playerSelection));
+}
+if (CPUScore==3){
+  return("I win!!, come back when you are better")
+}
+else{
+  return("You had luck, next time i will win")
+}
+}
+
+  </script>
+</body>
+</html>
